@@ -1,0 +1,81 @@
+.navbar {
+    position: fixed;
+    /* position: absolute; */
+    height: 4.5rem;
+    background: #1f1f1fe3;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+
+    width: 4.5rem;
+    padding-left: 0.5rem;
+}
+
+a {
+    color: white;
+}
+
+.username {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.username h4 {
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.username img {
+    width: 60px;
+    cursor: pointer;
+}
+
+ul {
+    margin-top: 3rem;
+
+}
+
+li {
+
+    list-style: none;
+}
+
+.li-block {
+    cursor: pointer;
+    border-radius: 1rem;
+    text-align: center;
+    padding: 0.5rem;
+    margin-right: 1rem;
+    background: #1f1f1fe3;
+}
+
+.li-hide {
+    visibility: hidden;
+    border-radius: 1rem;
+    text-align: center;
+    padding: 0.5rem;
+    margin-right: 1rem;
+    background: #1f1f1fe3;
+}
+
+.li-block {
+    display: block;
+    animation-name: showSubMenu;
+    animation-duration: .4s;
+}
+
+@keyframes showSubMenu {
+    0% {
+        transform: scale(0, 0);
+    }
+
+    100% {
+        transform: scale(1, 1);
+    }
+}

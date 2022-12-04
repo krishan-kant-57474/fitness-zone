@@ -1,0 +1,45 @@
+/* about  */
+
+
+.main-box {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(rgba(98, 98, 98, 0.8), rgba(98, 98, 98, 0.8)), url("../../images/danielle-cerull.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    flex-direction: column;
+}
+
+.bt {
+    padding: 0.4rem 4rem;
+    background: #FFCF35;
+    border-radius: 5rem;
+    color: rgb(39, 39, 39);
+    font-weight: 600;
+    border: 2px solid rgb(39, 39, 39);
+
+}
+
+.bt:hover {
+    background: rgb(39, 39, 39);
+    border: 2px solid #FFCF35;
+
+    border-radius: 5rem;
+    color: #FFCF35;
+}
+
+
+
+.emp-profile {
+    width: 50rem;
+    height: 31rem;
+    padding: 2rem;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    background-color: rgb(63, 63, 63);
+    border-radius: 25px;
+    margin-bottom: 2rem;
+
+}
