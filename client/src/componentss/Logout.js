@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Loader from "../Ui/Loader";
 
-const Logout = ({ setUpdate }) => {
+const Logout = () => {
 	const navigate = useNavigate();
 	//promises
 	useEffect(() => {
@@ -13,23 +14,19 @@ const Logout = ({ setUpdate }) => {
 			credentials: "include",
 		})
 			.then((res) => {
-				setUpdate((pre) => !pre);
-				navigate("/login", { replace: true });
 				if (res.status != 200) {
 					const error = new Error(res.error);
 					throw error;
 				}
+				localStorage.setItem("islogin", false);
+				navigate("/login", { replace: true });
 			})
 			.catch((err) => {
 				console.log(err);
 			});
-	});
+	}, []);
 
-	return (
-		<>
-			<h1> Logout ka page</h1>
-		</>
-	);
+	return <Loader />;
 };
 
 export default Logout;

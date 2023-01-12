@@ -3,7 +3,7 @@ import classes from "./Navbar.module.css";
 import logo from "../../images/gymLogo.png";
 import userLogo from "../../images/userLogo.png";
 import { useNavigate } from "react-router-dom";
-const Navbar = ({ userData, update, setLoading }) => {
+const Navbar = ({ userData, setLoading }) => {
 	const navigate = useNavigate();
 	const [userName, setUserName] = useState("");
 	const [isTrue, setIsTrue] = useState(false);
@@ -33,13 +33,9 @@ const Navbar = ({ userData, update, setLoading }) => {
 		setLoading(false);
 	};
 
-	// if(logout){
-
-	// }
-
 	useEffect(() => {
 		userHomePage();
-	}, [update]);
+	}, [localStorage.getItem("islogin")]);
 
 	return (
 		<Fragment>

@@ -5,10 +5,11 @@ import img from "../../images/gymLogo.png";
 
 const About = ({ userInfo }) => {
 	const navigate = useNavigate();
-
-	if (userInfo?.role !== "user") {
-		navigate("/login");
-	}
+	useEffect(() => {
+		if (userInfo?.role !== "user") {
+			navigate("/login");
+		}
+	}, [userInfo]);
 	return (
 		<div className={classes["main-box"]}>
 			<div className={classes["emp-profile"]}>

@@ -41,6 +41,7 @@ const Signup = ({ userInfo, setIsError }) => {
 			subscription === "" ||
 			password === ""
 		) {
+			setLoading(false);
 			return;
 		}
 

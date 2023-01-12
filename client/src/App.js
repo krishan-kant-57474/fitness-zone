@@ -18,7 +18,6 @@ import Loader from "./Ui/Loader";
 
 const App = () => {
 	const [userInfo, setUserInfo] = useState("");
-	const [update, setUpdate] = useState(false);
 	const [loading, setLoading] = useState(false);
 	const [isError, setIsError] = useState({
 		status: false,
@@ -35,12 +34,7 @@ const App = () => {
 
 	return (
 		<Fragment>
-			<Navbar
-				userData={userData}
-				update={update}
-				setUserInfo={setUserInfo}
-				setLoading={setLoading}
-			/>
+			<Navbar userData={userData} setLoading={setLoading} />
 			{isError.status && (
 				<Error onHideCart={handleError} message={isError.message} />
 			)}
@@ -53,13 +47,7 @@ const App = () => {
 						<Route path="/aboutus" element={<About userInfo={userInfo} />} />
 						<Route
 							path="/login"
-							element={
-								<Login
-									setUpdate={setUpdate}
-									setIsError={setIsError}
-									userInfo={userInfo}
-								/>
-							}
+							element={<Login setIsError={setIsError} userInfo={userInfo} />}
 						/>
 						<Route
 							path="/dashboard"
@@ -77,7 +65,7 @@ const App = () => {
 							path="/newMember"
 							element={<Singup userInfo={userInfo} setIsError={setIsError} />}
 						/>
-						<Route path="/logout" element={<Logout setUpdate={setUpdate} />} />
+						<Route path="/logout" element={<Logout />} />
 						<Route path="/subscriptionDetails" element={<Subscription />} />
 						<Route path="/*" element={<Errorpage setIsError={setIsError} />} />
 					</Routes>

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import classes from "./Login.module.css";
 import Loader from "../../Ui/Loader";
 
-const Login = ({ setUpdate, setIsError, userInfo }) => {
+const Login = ({ setIsError, userInfo }) => {
 	const navigate = useNavigate();
 	const [name, setName] = useState("");
 	const [password, setPassword] = useState("");
@@ -21,7 +21,8 @@ const Login = ({ setUpdate, setIsError, userInfo }) => {
 	const formData = async (event) => {
 		event.preventDefault();
 		setLoading(true);
-		if (name === "" || !password === "") {
+		if (name === "" || password === "") {
+			setLoading(false);
 			return;
 		}
 		const res = await fetch("/signin", {
@@ -43,8 +44,7 @@ const Login = ({ setUpdate, setIsError, userInfo }) => {
 				message: data.message,
 			});
 		} else {
-			setUpdate((pre) => !pre);
-
+			localStorage.setItem("islogin", true);
 			setName("");
 			setPassword("");
 			setIsError({
@@ -62,6 +62,7 @@ const Login = ({ setUpdate, setIsError, userInfo }) => {
 	};
 
 	useEffect(() => {
+		console.log("userinfo-useEffect");
 		if (userInfo.role === "admin") {
 			navigate("/dashboard");
 		}

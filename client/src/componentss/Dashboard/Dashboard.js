@@ -12,9 +12,13 @@ const Dashboard = ({ userInfo }) => {
 	const newMamberHandler = () => {
 		navigate("/newMember");
 	};
-	if (userInfo?.role !== "admin") {
-		navigate("/login");
-	}
+
+	useEffect(() => {
+		if (userInfo?.role !== "admin") {
+			navigate("/login");
+		}
+	}, [userInfo]);
+
 	return (
 		<div className={classes["main-box"]}>
 			<div className={classes.members} onClick={membersHandler}>
