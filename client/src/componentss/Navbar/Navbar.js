@@ -3,11 +3,13 @@ import classes from "./Navbar.module.css";
 import logo from "../../images/gymLogo.png";
 import userLogo from "../../images/userLogo.png";
 import { useNavigate } from "react-router-dom";
-const Navbar = ({ userData, update }) => {
+const Navbar = ({ userData, update, setLoading }) => {
 	const navigate = useNavigate();
 	const [userName, setUserName] = useState("");
 	const [isTrue, setIsTrue] = useState(false);
+
 	const userHomePage = async () => {
+		setLoading(true);
 		try {
 			const res = await fetch("/me", {
 				method: "GET",
@@ -28,6 +30,7 @@ const Navbar = ({ userData, update }) => {
 			console.log("give me big error");
 			console.log(error);
 		}
+		setLoading(false);
 	};
 
 	// if(logout){
@@ -51,7 +54,7 @@ const Navbar = ({ userData, update }) => {
 					<h4>FITNESS ZONE</h4>
 				</div>
 				<div className={classes.username}>
-					<h4>{userName ? "Hii " + userName : ""}</h4>
+					<h4>{userName ? "Hi " + userName : ""}</h4>
 					<ul
 						onMouseOver={() => {
 							setIsTrue((pre) => !pre);
@@ -61,10 +64,11 @@ const Navbar = ({ userData, update }) => {
 						}}
 					>
 						<li>
-							<img src={userLogo} alt="" />
+							<img src={userLogo} alt="logo" />
 						</li>
+
 						<li
-							className={classes[`${isTrue ? "li-block" : "li-hide"}`]}
+							className={classes["login"]}
 							onClick={() => {
 								if (userName !== "") {
 									navigate("/logout");
@@ -73,7 +77,7 @@ const Navbar = ({ userData, update }) => {
 								}
 							}}
 						>
-							{userName !== "" ? "Logout" : "Login"}
+							<h4>{userName !== "" ? "Logout" : "Login"}</h4>
 						</li>
 					</ul>
 				</div>

@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.0d16c54d.css",
-    "main.js": "/static/js/main.e92505c8.js",
+    "main.css": "/static/css/main.bf9ed540.css",
+    "main.js": "/static/js/main.67239de0.js",
     "static/media/danielle-cerull.png": "/static/media/danielle-cerull.de97ffa7ba8a160685f7.png",
     "static/media/gym2.png": "/static/media/gym2.160df2410c052e0243c1.png",
     "static/media/userLogo.png": "/static/media/userLogo.1a6c337cd0979fb1356a.png",
     "static/media/gymLogo.png": "/static/media/gymLogo.6a2f398092ab8303950b.png",
     "index.html": "/index.html",
-    "main.0d16c54d.css.map": "/static/css/main.0d16c54d.css.map",
-    "main.e92505c8.js.map": "/static/js/main.e92505c8.js.map"
+    "main.bf9ed540.css.map": "/static/css/main.bf9ed540.css.map",
+    "main.67239de0.js.map": "/static/js/main.67239de0.js.map"
   },
   "entrypoints": [
-    "static/css/main.0d16c54d.css",
-    "static/js/main.e92505c8.js"
+    "static/css/main.bf9ed540.css",
+    "static/js/main.67239de0.js"
   ]
 }

@@ -12,7 +12,7 @@
 }
 
 .form-box {
-    margin-top: 5rem;
+    margin-top: 3rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -52,7 +52,9 @@ p {
     color: #FFEB00;
     background: #000;
     font-size: 16px;
+    font-weight: bold;
     cursor: pointer;
+    margin-bottom: 1rem;
 }
 
 .form-title {

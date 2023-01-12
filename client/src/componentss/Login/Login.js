@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import classes from "./Login.module.css";
+import Loader from "../../Ui/Loader";
 
 const Login = ({ setUpdate, setIsError, userInfo }) => {
 	const navigate = useNavigate();
 	const [name, setName] = useState("");
 	const [password, setPassword] = useState("");
+
+	const [loading, setLoading] = useState(false);
 
 	const nameHandler = (event) => {
 		setName(event.target.value);
@@ -14,8 +17,10 @@ const Login = ({ setUpdate, setIsError, userInfo }) => {
 	const passwordHandler = (event) => {
 		setPassword(event.target.value);
 	};
+
 	const formData = async (event) => {
 		event.preventDefault();
+		setLoading(true);
 		if (name === "" || !password === "") {
 			return;
 		}
@@ -53,6 +58,7 @@ const Login = ({ setUpdate, setIsError, userInfo }) => {
 				navigate("/aboutus");
 			}
 		}
+		setLoading(false);
 	};
 
 	useEffect(() => {
@@ -65,37 +71,44 @@ const Login = ({ setUpdate, setIsError, userInfo }) => {
 	}, [userInfo]);
 
 	return (
-		<div className={classes["main-box"]}>
-			<form className={classes["form-box"]} onSubmit={formData}>
-				<input
-					type="text"
-					placeholder="Name"
-					name="name"
-					onChange={nameHandler}
-					value={name}
-				/>
-				<div>
-					<input
-						type="password"
-						placeholder="Password"
-						name="password"
-						onChange={passwordHandler}
-						value={password}
-					/>
-					<p className={classes.forget}
-						onClick={() => {
-							setIsError({
-								status: true,
-								message: "Work is Going on. So Sorry",
-							});
-						}}
-					>
-						forget password?
-					</p>
+		<Fragment>
+			{loading ? (
+				<Loader />
+			) : (
+				<div className={classes["main-box"]}>
+					<form className={classes["form-box"]} onSubmit={formData}>
+						<input
+							type="text"
+							placeholder="Name"
+							name="name"
+							onChange={nameHandler}
+							value={name}
+						/>
+						<div>
+							<input
+								type="password"
+								placeholder="Password"
+								name="password"
+								onChange={passwordHandler}
+								value={password}
+							/>
+							<p
+								className={classes.forget}
+								onClick={() => {
+									setIsError({
+										status: true,
+										message: "Work is Going on. So Sorry",
+									});
+								}}
+							>
+								forget password?
+							</p>
+						</div>
+						<button>Login</button>
+					</form>
 				</div>
-				<button>Login</button>
-			</form>
-		</div>
+			)}
+		</Fragment>
 	);
 };
 
