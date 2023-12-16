@@ -41,7 +41,7 @@ const Footer = () => {
 						<i class="fa fa-map-marker"></i>
 					</a>
 					<h4>
-						<span>St. Andrews Institute.</span> Gurugram, Haryana
+						<span>Dronacharya College of Engineering</span> Gurugram, Haryana
 					</h4>
 				</div>
 
@@ -55,7 +55,7 @@ const Footer = () => {
 						<i class="fa fa-envelope"></i>
 					</a>
 
-					<h4>krish@company.com</h4>
+					<h4>demo@company.com</h4>
 				</div>
 			</div>
 
